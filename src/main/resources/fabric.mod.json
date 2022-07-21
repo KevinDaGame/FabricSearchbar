@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "searchbar",
+  "version": "${version}",
+  "name": "Searchbar",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/searchbar/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+    ],
+    "main": [
+      "com.github.kevindagame.SearchBar"
+    ]
+  },
+  "mixins": [
+    "searchbar.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.8",
+    "minecraft": "1.18.2"
+  }
+}
