@@ -7,7 +7,6 @@ import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.option.ServerList;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -29,7 +28,7 @@ public abstract class SearchBarMixin extends Screen {
 
     @Inject(method = "init", at = @At("RETURN"))
     private void addSearchBar(CallbackInfo ci) {
-        var filterField = new TextFieldWidget(this.textRenderer, 8, 10, 100, 20, new TranslatableText("addServer.enterName"));
+        var filterField = new TextFieldWidget(this.textRenderer, 8, 10, 100, 20, Text.translatable("Filter server list"));
         filterField.setText(filterText);
         filterField.setChangedListener((text) -> {
             filterText = text;
@@ -39,7 +38,7 @@ public abstract class SearchBarMixin extends Screen {
     }
     @Inject(method = "render", at = @At("RETURN"))
     private void render(MatrixStack matrices, int mouseX, int mouseY, float delta, CallbackInfo ci){
-        drawTextWithShadow(matrices, this.textRenderer, new TranslatableText("Filter server list"), 8, 0, 10526880);
+        drawTextWithShadow(matrices, this.textRenderer, Text.translatable("Filter server list"), 8, 0, 10526880);
     }
 
     private void filter() {
