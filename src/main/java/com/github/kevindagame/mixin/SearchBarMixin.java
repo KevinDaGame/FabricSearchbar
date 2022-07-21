@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MultiplayerScreen.class)
-public abstract class SearchBarMixin1_18 extends Screen {
+public abstract class SearchBarMixin extends Screen {
     @Shadow
     private ServerList serverList;
     @Shadow
@@ -23,7 +23,7 @@ public abstract class SearchBarMixin1_18 extends Screen {
     @Shadow
     protected MultiplayerServerListWidget serverListWidget;
     private String filterText = "";
-    protected SearchBarMixin1_18(Text title) {
+    protected SearchBarMixin(Text title) {
         super(title);
     }
 
